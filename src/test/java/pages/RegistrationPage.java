@@ -38,6 +38,11 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setValue(String locator, String value) {
+        $(locator).setValue(value);
+        return this;
+    }
+
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
 

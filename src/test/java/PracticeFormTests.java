@@ -3,11 +3,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.textCaseSensitive;
-import static com.codeborne.selenide.Selenide.*;
-
 
 public class PracticeFormTests {
     RegistrationPage registraionPage = new RegistrationPage();
@@ -22,8 +17,9 @@ public class PracticeFormTests {
 
     @Test
     void successRequiredFillTest() {
-        registraionPage.openPage()
-                .setFirstName("Bob")
+        registraionPage.openPage();
+
+        registraionPage.setFirstName("Bob")
                 .setLastName("Alex")
                 .setEmailInput("bobalex@gmail.com")
                 .setGender("Male")
@@ -36,8 +32,9 @@ public class PracticeFormTests {
                 .setCurrentAddress("cat dog chicken 15")
                 .setState("Uttar Pradesh")
                 .setCity("Agra")
-                .pressSubmitButton()
-                .checkHeaderModalTable("Thanks for submitting the form")
+                .pressSubmitButton();
+
+        registraionPage.checkHeaderModalTable("Thanks for submitting the form")
                 .checkForm("Student Name", "Bob Alex")
                 .checkForm("Student Email", "bobalex@gmail.com")
                 .checkForm("Gender", "Male")
