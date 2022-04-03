@@ -9,13 +9,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DragAndDropTest {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1512x810";
-    }
-
     @Test
-    void successdragAndDropTest(){
+    void successDragAndDropTest(){
         // actions
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").dragAndDropTo("#column-b");

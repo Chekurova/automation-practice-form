@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,21 +9,16 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.textCaseSensitive;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PracticeFormTest {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1512x810";
-    }
+public class PracticeFormTest extends TestBase{
 
     @Test
     void successRequiredFillTest() {
-        open("/automation-practice-form");
+        open(baseUrl +"/automation-practice-form");
         // форма Имени Пароля и почты
         $(".main-header").shouldHave(text("Practice Form"));
         $("#firstName").setValue("Bob");
@@ -46,7 +43,7 @@ public class PracticeFormTest {
 
     @Test
     void fillAllFieldsTest() {
-        open("/automation-practice-form");
+        open(baseUrl +"/automation-practice-form");
         // Name LastName Emai;
         $(".main-header").shouldHave(text("Practice Form"));
         $("#firstName").setValue("Bob");

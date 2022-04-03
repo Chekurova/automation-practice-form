@@ -1,5 +1,3 @@
-package tests;
-
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,8 +11,8 @@ public class SearchFromGithubTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://github.com";
-        Configuration.browserSize = "1512x810";
     }
+
 
     @Test
     void successSearchFromGithubTest() {
